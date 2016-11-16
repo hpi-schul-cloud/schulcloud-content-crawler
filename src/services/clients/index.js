@@ -6,18 +6,25 @@ require("fs").readdirSync(normalizedPath).forEach(function(folder) {
   clients.push(require("./src/" + folder));
 });
 
+var async = require('async');
 
 const contentModel = require('./content-model'); 
 
 module.exports = function(){
   //fetching all data from every client and push the data to the database
-  clients.forEach((client) => {
-    addContent(client.name, client.getAll());
+  var clientsFunction = clients.map((client) => {
+    return function (callback) {
+      addContent(client.name, client.getAll());
+      callback(null, true);
+    }
   });
+
+  async.parallelLimit(clientsFunction, 5, 
+    (errors, results) => console.log("successes: " + results.length + '/' + clients.length) );
 };
 
 function addContent (clientName, content) {
-  new contentModel({
+  return new contentModel({
     client: "test",
     name: "mathe",
     contentUrl: "http://google.de/"

@@ -1,5 +1,5 @@
 module.exports = {
 	getAll: function () {
-		console.log("geilo");
+		setTimeout(() => console.log("geilo"), 500);
 	}
 }
