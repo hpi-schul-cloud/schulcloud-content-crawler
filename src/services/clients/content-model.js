@@ -17,6 +17,6 @@ const contentSchema = new Schema({
   updatedAt: { type: Date, 'default': Date.now }
 });
 
-const contentModel = mongoose.model('content', clientsSchema);
+const contentModel = mongoose.model('content', contentSchema);
 
 module.exports = contentModel;
