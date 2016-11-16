@@ -14,8 +14,7 @@ module.exports = function(){
   //fetching all data from every client and push the data to the database
   var clientsFunction = clients.map((client) => {
     return function (callback) {
-      addContent(client.name, client.getAll());
-      callback(null, true);
+      addContent(client.name, client.getAll(callback));
     }
   });
 
@@ -24,9 +23,14 @@ module.exports = function(){
 };
 
 function addContent (clientName, content) {
-  return new contentModel({
-    client: "test",
+  var entry = new contentModel({
+    client: clientName,
     name: "mathe",
     contentUrl: "http://google.de/"
+  });
+
+  console.log("Jonas ist verlegen.");
+  return entry.save(function (err, fluffy) {
+      if (err) return console.error(err);
   });
 }

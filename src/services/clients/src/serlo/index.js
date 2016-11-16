@@ -1,5 +1,9 @@
 module.exports = {
-	getAll: function () {
-		setTimeout(() => console.log("geilo"), 500);
+	name: "serlo",
+	getAll: function (callback) {
+		setTimeout(() => {
+			console.log("geilo");
+			callback(null, true);
+		}, 500);
 	}
 }
