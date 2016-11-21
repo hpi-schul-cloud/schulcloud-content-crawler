@@ -6,31 +6,32 @@ require("fs").readdirSync(normalizedPath).forEach(function(folder) {
   clients.push(require("./src/" + folder));
 });
 
-var async = require('async');
 
 const contentModel = require('./content-model'); 
+const async = require('async-q');
+const service = require('feathers-mongoose');
 
 module.exports = function(){
+  var app = this;
+
+  contentModel.collection.drop();
   //fetching all data from every client and push the data to the database
-  var clientsFunction = clients.map((client) => {
-    return function (callback) {
-      addContent(client.name, client.getAll(callback));
+  var clientsPromises = clients.map((client) => 
+    client.getAll()
+        .then(function (data) {
+          return contentModel.collection.insert(data);
+        })
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error + " failed"))
+  );
+
+  var options = {
+    Model: contentModel,
+    paginate: {
+      default: 5,
+      max: 25
     }
-  });
-
-  async.parallelLimit(clientsFunction, 5, 
-    (errors, results) => console.log("successes: " + results.length + '/' + clients.length) );
+  };
+ 
+  app.use('/contents', service(options));
 };
-
-function addContent (clientName, content) {
-  var entry = new contentModel({
-    client: clientName,
-    name: "mathe",
-    contentUrl: "http://google.de/"
-  });
-
-  console.log("Jonas ist verlegen.");
-  return entry.save(function (err, fluffy) {
-      if (err) return console.error(err);
-  });
-}
