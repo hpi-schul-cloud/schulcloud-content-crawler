@@ -1,9 +1,13 @@
 'use strict';
 
 var clients = [];
-var normalizedPath = require("path").join(__dirname, "src");
+const path = require("path");
+
+var normalizedPath = path.join(__dirname, "../../clients/src/");
 require("fs").readdirSync(normalizedPath).forEach(function(folder) {
-  clients.push(require("./src/" + folder));
+  if(!folder.endsWith('.js') && !folder.endsWith('antares') ) {
+    clients.push(require(path.join(normalizedPath, folder + "/client")));
+  }
 });
 
 
@@ -16,14 +20,19 @@ module.exports = function(){
 
   contentModel.collection.drop();
   //fetching all data from every client and push the data to the database
-  var clientsPromises = clients.map((client) => 
-    client.getAll()
-        .then(function (data) {
-          return contentModel.collection.insert(data);
-        })
-        .then((data) => console.log(data))
-        .catch((error) => console.log(error + " failed"))
-  );
+  var clientsPromises = clients
+    .map((client) => client.constructor())
+    .filter((client) => {console.log(client); client.getAll !== undefined;})
+    .map((client) => {
+      console.log("hama");
+      return new Promise(client.getAll())
+          .then(function (data) {
+            return contentModel.collection.insert(data);
+          })
+          .then((data) => console.log(data))
+          .catch((error) => console.log(error + " failed"))
+      }
+    );
 
   var options = {
     Model: contentModel,
