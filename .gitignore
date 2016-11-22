@@ -32,3 +32,5 @@ data/
 
 #intellij
 .idea/
+
+src/clients/
