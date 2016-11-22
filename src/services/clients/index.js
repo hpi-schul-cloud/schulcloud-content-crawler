@@ -18,22 +18,6 @@ const service = require('feathers-mongoose');
 module.exports = function(){
   var app = this;
 
-  contentModel.collection.drop();
-  //fetching all data from every client and push the data to the database
-  var clientsPromises = clients
-    .map((client) => client.constructor())
-    .filter((client) => {console.log(client); client.getAll !== undefined;})
-    .map((client) => {
-      console.log("hama");
-      return new Promise(client.getAll())
-          .then(function (data) {
-            return contentModel.collection.insert(data);
-          })
-          .then((data) => console.log(data))
-          .catch((error) => console.log(error + " failed"))
-      }
-    );
-
   var options = {
     Model: contentModel,
     paginate: {
@@ -43,4 +27,57 @@ module.exports = function(){
   };
  
   app.use('/contents', service(options));
+  app.use('/startFetching', {
+    find() {
+      return fetchData();
+    } 
+  });
+
+  //fetchData();
 };
+
+//fetching all data from every client and push the data to the database
+function fetchData () {
+  var clientsPromises = clients
+    .filter((client) => client.getAll !== undefined)
+    .map((client) => {
+      return client.getAll()
+          .then((data) => insertIntoDatabase(client.name, data))
+          .catch((error) => console.error(client.name + ' failed with error:' + error))
+      }
+    );
+
+  console.log('Will fetch data from ' + clientsPromises.length + ' clients');
+  
+  return Promise.all(clientsPromises).then((data) => {
+    var text = data.length + ' clients finished fetching data';
+    console.log(text);
+    return {message: text,
+            clients: clients.filter((client) => client.getAll !== undefined).map((client) => client.name),
+            succeededFetches: data.length
+            };
+  });
+
+
+}
+
+function insertIntoDatabase(clientName, data) {
+  console.log(clientName + ': fetched ' + data.length + ' entities');
+  data = data.map((learningObject) => {return {
+    client: clientName,
+    originId: learningObject.originId,
+    title: learningObject.title,
+    url: learningObject.url,
+    license: learningObject.license
+  }});
+
+  var removePromise = contentModel.remove({client: clientName}).exec();
+  
+  return removePromise.then(
+      (result) => console.log(clientName + ': deleted ' + result + ' rows in db')
+    ).then(
+      () => contentModel.collection.insert(data, { ordered: false })
+    ).then(
+      (result) => console.log(clientName + ': inserted ' + result.insertedCount + ' rows to db')
+    );
+}

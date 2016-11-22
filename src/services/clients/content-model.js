@@ -10,8 +10,10 @@ const Schema = mongoose.Schema;
 
 const contentSchema = new Schema({
   client: { type: String, required: true},
-  name: { type: String, required: true},
-  contentUrl: { type: String, required: true},
+  originId: { type: String, required: true},
+  title: { type: String, required: true},
+  url: { type: String, required: true},
+  license: { type: String, required: true},
   
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
