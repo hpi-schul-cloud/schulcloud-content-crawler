@@ -20,7 +20,8 @@
     "jshint": "jshint src/. test/. --config",
     "start": "babel-node src/",
     "mocha": "mocha test/ --compilers js:babel-core/register --recursive",
-    "postinstall": "cd src/clients && npm install"
+    "postinstall": "cd src/clients && npm install",
+    "preinstall": "git submodule update --init"
   },
   "dependencies": {
     "async-q": "^0.3.1",
