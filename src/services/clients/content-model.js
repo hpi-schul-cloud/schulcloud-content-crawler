@@ -1,5 +1,6 @@
 'use strict';
 
+const contentModelFromClientRepo = require('../../clients/src/content-model');
 // content-model.js - A mongoose model
 // 
 // See http://mongoosejs.com/docs/models.html
@@ -8,17 +9,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const contentSchema = new Schema({
-  client: { type: String, required: true},
-  originId: { type: String, required: true},
-  title: { type: String, required: true},
-  url: { type: String, required: true},
-  license: { type: String, required: true},
-  
-  createdAt: { type: Date, 'default': Date.now },
-  updatedAt: { type: Date, 'default': Date.now }
-});
+var contentSchemaObject = Object.assign({}, contentModelFromClientRepo.schema);
+contentSchemaObject.updatedAt = { type: Date, 'default': Date.now };
+contentSchemaObject.client = { type: String, required: true};
 
+const contentSchema = new Schema(contentSchemaObject);
 const contentModel = mongoose.model('content', contentSchema);
 
 module.exports = contentModel;

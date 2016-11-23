@@ -2,14 +2,16 @@
 
 var clients = [];
 const path = require("path");
+const fs = require("fs"); 
 
 var normalizedPath = path.join(__dirname, "../../clients/src/");
-require("fs").readdirSync(normalizedPath).forEach(function(folder) {
-  if(!folder.endsWith('.js') && !folder.endsWith('antares') ) {
-    clients.push(require(path.join(normalizedPath, folder + "/client")));
-  }
-});
-
+fs.readdirSync(normalizedPath)
+  .filter((file) => fs.statSync(path.join(normalizedPath, file)).isDirectory())
+  .forEach(function(name) {
+    let module = require(path.join(normalizedPath, name + "/client"));
+    clients.push({module, name});
+  });
+clients = clients.filter((client) => client.module.getAll !== undefined);
 
 const contentModel = require('./content-model');
 const async = require('async-q');
@@ -18,14 +20,6 @@ const service = require('feathers-mongoose');
 module.exports = function(){
   var app = this;
 
-  var options = {
-    Model: contentModel,
-    paginate: {
-      default: 5,
-      max: 25
-    }
-  };
- 
   app.use('/startFetching', {
     find() {
       return fetchData();
@@ -37,23 +31,30 @@ module.exports = function(){
 
 //fetching all data from every client and push the data to the database
 function fetchData () {
+  var errors = [];
   var clientsPromises = clients
-    .filter((client) => client.getAll !== undefined)
-    .map((client) => {
-      return client.getAll()
+    .map((client) =>
+      client.module.getAll()
           .then((data) => insertIntoDatabase(client.name, data))
-          .catch((error) => console.error(client.name + ' failed with error:' + error))
-      }
+          .catch((error) => {
+            console.error(client.name + ' failed with error:' + error);
+            errors.push({client: client.name, error: error});
+          })
     );
 
   console.log('Will fetch data from ' + clientsPromises.length + ' clients');
 
   return Promise.all(clientsPromises).then((data) => {
-    var text = data.length + ' clients finished fetching data';
+    var successes = clients
+                  .filter((client) => errors.filter((error) => error.client === client.name).length == 0)
+                  .map((client) => client.name);
+    var text = successes.length + '/' + clients.length + ' clients successfully fetched data';
+    
     console.log(text);
     return {message: text,
-            clients: clients.filter((client) => client.getAll !== undefined).map((client) => client.name),
-            succeededFetches: data.length
+            clients: clients.map((client) => client.name),
+            successes,
+            errors,
             };
   });
 
@@ -62,13 +63,11 @@ function fetchData () {
 
 function insertIntoDatabase(clientName, data) {
   console.log(clientName + ': fetched ' + data.length + ' entities');
-  data = data.map((learningObject) => {return {
-    client: clientName,
-    originId: learningObject.originId,
-    title: learningObject.title,
-    url: learningObject.url,
-    license: learningObject.license
-  }});
+  data.forEach((entity) => {
+    entity.updatedAt = Date.now();
+    entity._id = clientName + '/' + entity.originId;
+    entity.client = clientName;
+  });
 
   var removePromise = contentModel.remove({client: clientName}).exec();
 
