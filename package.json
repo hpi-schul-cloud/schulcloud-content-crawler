@@ -17,7 +17,7 @@
   },
   "scripts": {
     "test": "npm run jshint && npm run mocha",
-    "jshint": "jshint src/. test/. --config",
+    "jshint": "jshint src/. test/. --config || true",
     "start": "babel-node src/",
     "mocha": "mocha test/ --compilers js:babel-core/register --recursive",
     "postinstall": "cd src/clients && npm install",
