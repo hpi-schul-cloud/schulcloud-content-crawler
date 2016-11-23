@@ -1,3 +1,3 @@
 [submodule "src/clients"]
 	path = src/clients
-	url = https://github.com/schulcloud/schulcloud-content-clients.git
+	url = git@github.com:schulcloud/schulcloud-content-clients.git
