@@ -11,7 +11,7 @@ require("fs").readdirSync(normalizedPath).forEach(function(folder) {
 });
 
 
-const contentModel = require('./content-model'); 
+const contentModel = require('./content-model');
 const async = require('async-q');
 const service = require('feathers-mongoose');
 
@@ -26,11 +26,10 @@ module.exports = function(){
     }
   };
  
-  app.use('/contents', service(options));
   app.use('/startFetching', {
     find() {
       return fetchData();
-    } 
+    }
   });
 
   //fetchData();
@@ -48,7 +47,7 @@ function fetchData () {
     );
 
   console.log('Will fetch data from ' + clientsPromises.length + ' clients');
-  
+
   return Promise.all(clientsPromises).then((data) => {
     var text = data.length + ' clients finished fetching data';
     console.log(text);
@@ -72,7 +71,7 @@ function insertIntoDatabase(clientName, data) {
   }});
 
   var removePromise = contentModel.remove({client: clientName}).exec();
-  
+
   return removePromise.then(
       (result) => console.log(clientName + ': deleted ' + result + ' rows in db')
     ).then(
