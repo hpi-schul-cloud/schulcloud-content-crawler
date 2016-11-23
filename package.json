@@ -21,7 +21,8 @@
     "start": "babel-node src/",
     "mocha": "mocha test/ --compilers js:babel-core/register --recursive",
     "postinstall": "cd src/clients && npm install",
-    "preinstall": "git submodule update --init"
+    "preinstall": "git submodule update --init",
+    "updateSubmodule": "git submodule update --remote --recursive"
   },
   "dependencies": {
     "async-q": "^0.3.1",
