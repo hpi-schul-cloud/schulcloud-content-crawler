@@ -24,6 +24,13 @@ Getting up and running is as easy as 1, 2, 3.
     ```
     npm start
     ```
+## API
+
+```
+/contents                                    # shows 5 results
+/contents?title=Binomische%20Formeln         # you can filter for fields
+/contents/58355f30c5e8e91d80a0a85e           # if you already now the id, you can access it directly
+```
 
 ## Testing
 
