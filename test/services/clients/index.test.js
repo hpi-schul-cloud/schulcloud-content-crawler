@@ -5,6 +5,6 @@ const app = require('../../../src/app');
 
 describe('clients service', function() {
   it('registered the clients service', () => {
-    assert.ok(app.service('clients'));
+    assert.ok(app.service('startFetching'));
   });
 });
