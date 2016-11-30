@@ -1,5 +1,7 @@
 'use strict';
 
+const jsonapi = require('./jsonapi');
+
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 
@@ -11,9 +13,9 @@ const myHook = options => { // always wrap in a function so you can pass options
 };
 
 exports.before = {
-  all: [myHook()],
-  find: [myHook()],
-  get: [myHook()],
+  all: [],
+  find: [],
+  get: [],
   create: [],
   update: [],
   patch: [],
@@ -21,9 +23,9 @@ exports.before = {
 };
 
 exports.after = {
-  all: [myHook()],
-  find: [myHook()],
-  get: [myHook()],
+  all: [],
+  find: [myHook(), jsonapi()],
+  get: [],
   create: [],
   update: [],
   patch: [],

@@ -3,13 +3,8 @@
 const service = require('feathers-mongoose');
 // Require content model as defined by clients
 const content = require('./../clients/content-model');
-
-const afterFindHook = options => { // always wrap in a function so you can pass options and for consistency.
-  return hook => {
-    console.log('My custom hook ran after find. Now we can sort the results or do other stuff with it.');
-    return Promise.resolve(hook); // A good convention is to always return a promise.
-  };
-};
+// Require service hooks
+const hooks = require('./hooks/index');
 
 module.exports = function() {
   const app = this;
@@ -22,8 +17,7 @@ module.exports = function() {
     }
   };
 
-  var mongooseService = service(options);
-  // console.log(mongooseService);
+  let mongooseService = service(options);
 
   // Initialize our service with any options it requires
   app.use('/contents', mongooseService);
@@ -35,8 +29,5 @@ module.exports = function() {
   contentService.update = null;
   contentService.patch = null;
   contentService.remove = null;
-  contentService.after({
-    find: [afterFindHook()]
-  });
-
+  contentService.hooks(hooks);
 };
