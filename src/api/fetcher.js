@@ -55,7 +55,10 @@ function insertIntoDatabase(clientName, data) {
   data.forEach((entity) => {
     entity.updatedAt = Date.now();
     entity._id = md5(clientName + '_' + entity.originId).slice(4,28);    
+    entity.id = md5(clientName + '_' + entity.originId).slice(4,28); 
     entity.type = "contents"; //needed for jsonapi-server    
+    delete entity.relatedResources;
+    delete entity.targetGroups;
     entity.client = clientName;
   });
 
