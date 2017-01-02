@@ -1,7 +1,7 @@
 {
-  "name": "express-es6-rest-api",
-  "version": "0.3.0",
-  "description": "Starter project for an ES6 RESTful Express API",
+  "name": "schulcloud-content-crawler",
+  "version": "0.0.0",
+  "description": "Service to gather content from various education sites and providing a search",
   "main": "dist",
   "scripts": {
     "dev": "nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
@@ -24,8 +24,11 @@
       "no-unused-vars": 1
     }
   },
-  "repository": "developit/express-es6-rest-api",
-  "author": "Jason Miller <jason@developit.ca>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schulcloud/schulcloud-content-crawler"
+  },
+  "author": {},
   "license": "MIT",
   "dependencies": {
     "async-q": "^0.3.1",
