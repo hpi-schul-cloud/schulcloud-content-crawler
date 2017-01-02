@@ -33,3 +33,4 @@ data/
 #intellij
 .idea/
 
+dist/

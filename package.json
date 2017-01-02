@@ -1,52 +1,56 @@
 {
-  "name": "schulcloud-content-crawler",
-  "description": "Service to gather content from various education sites and providing a search",
-  "version": "0.0.0",
-  "homepage": "",
-  "main": "src/",
-  "keywords": [
-    "feathers"
-  ],
-  "license": "MIT",
-  "repository": {},
-  "author": {},
-  "contributors": [],
-  "bugs": {},
-  "engines": {
-    "node": ">= 0.12.0"
-  },
+  "name": "express-es6-rest-api",
+  "version": "0.3.0",
+  "description": "Starter project for an ES6 RESTful Express API",
+  "main": "dist",
   "scripts": {
-    "test": "npm run jshint && npm run mocha",
-    "jshint": "jshint src/. test/. --config || true",
-    "start": "babel-node src/",
-    "mocha": "mocha test/ --compilers js:babel-core/register --recursive",
-    "postinstall": "cd src/clients && npm install",
-    "preinstall": "git submodule update --init",
-    "updateSubmodule": "git submodule update --remote --recursive"
+    "dev": "nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
+    "build": "babel src -s -D -d dist --presets es2015,stage-0",
+    "start": "node dist",
+    "prestart": "npm run -s build",
+    "test": "eslint src"
   },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "repository": "developit/express-es6-rest-api",
+  "author": "Jason Miller <jason@developit.ca>",
+  "license": "MIT",
   "dependencies": {
     "async-q": "^0.3.1",
-    "body-parser": "^1.15.2",
-    "compression": "^1.6.2",
-    "cors": "^2.8.1",
-    "feathers": "^2.0.2",
-    "feathers-authentication": "^0.7.12",
-    "feathers-configuration": "^0.3.3",
-    "feathers-errors": "^2.5.0",
-    "feathers-hooks": "^1.6.1",
-    "feathers-mongoose": "^3.6.1",
-    "feathers-rest": "^1.5.2",
-    "mongoose": "^4.6.8",
-    "passport": "^0.3.2",
-    "serve-favicon": "^2.3.0",
-    "winston": "^2.3.0"
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "cors": "^2.7.1",
+    "crypto": "0.0.3",
+    "express": "^4.13.3",
+    "lodash": "^4.17.2",
+    "md5": "^2.2.1",
+    "moment-timezone": "^0.5.11",
+    "mongoose": "^4.7.5",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
+    "resource-router-middleware": "^0.5.1",
+    "schulcloud-content-clients": "git+https://github.com/schulcloud/schulcloud-content-clients.git",
+    "url-join": "^1.1.0",
+    "xml2js-es6-promise": "^1.1.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-core": "^6.18.2",
-    "babel-preset-es2015": "^6.18.0",
-    "jshint": "^2.9.4",
-    "mocha": "^3.1.2",
-    "request": "^2.78.0"
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2"
   }
 }

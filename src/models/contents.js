@@ -1,6 +1,6 @@
 'use strict';
 
-const contentModelFromClientRepo = require('../../clients/src/content-model');
+import contentModelFromClientRepo from '../clients/content-model';
 // content-model.js - A mongoose model
 // 
 // See http://mongoosejs.com/docs/models.html
@@ -14,6 +14,6 @@ contentSchemaObject.updatedAt = { type: Date, 'default': Date.now };
 contentSchemaObject.client = { type: String, required: true};
 
 const contentSchema = new Schema(contentSchemaObject);
-const contentModel = mongoose.model('content', contentSchema);
+const contentModel = mongoose.model('Content', contentSchema);
 
-module.exports = contentModel;
+export default contentModel;
