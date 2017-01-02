@@ -1,5 +1,5 @@
 {
-  "name": "schul-cloud-content",
+  "name": "schulcloud-content-crawler",
   "description": "Service to gather content from various education sites and providing a search",
   "version": "0.0.0",
   "homepage": "",
