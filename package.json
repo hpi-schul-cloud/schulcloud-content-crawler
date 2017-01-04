@@ -44,6 +44,7 @@
     "request": "^2.79.0",
     "request-promise": "^4.1.1",
     "resource-router-middleware": "^0.5.1",
+    "striptags": "^2.1.1",
     "url-join": "^1.1.0",
     "xml2js-es6-promise": "^1.1.1"
   },
