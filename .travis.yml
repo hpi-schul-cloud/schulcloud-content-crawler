@@ -6,7 +6,7 @@ services:
   - mongodb
 
 before_install:
-  - sudo apt-get install -y libxml2-dev
+  - sudo apt-get install libxml2-dev libxslt-dev python-dev
 
 script:
   - npm test
