@@ -11,7 +11,7 @@ const helper = require('./../_helper/helper');
 
 
 const ARIX_URL = 'https://arix.datenbank-bildungsmedien.net';
-const SECRET = 'vx6sfg7sdftsdfq3hr2hdf';
+const SECRET = require('./../../../config').antares.secret;
 const DEFAULT_CONTEXT = 'HH/HH/9999'; // default for test purposes
 const DEFAULT_HEADERS = {
     'Content-Type': 'application/x-www-form-urlencoded'

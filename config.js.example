@@ -1,0 +1,5 @@
+var config = {};
+
+config.antares = {secret: 'abcdefghijklmn123456789'};
+
+module.exports = config;
