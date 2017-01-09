@@ -1,4 +1,4 @@
-master: [![Build Status](https://travis-ci.org/schulcloud/schulcloud-content^-crawler.svg?branch=master)](https://travis-ci.org/schulcloud/schulcloud-content-crawler)
+master: [![Build Status](https://travis-ci.org/schulcloud/schulcloud-content-crawler.svg?branch=master)](https://travis-ci.org/schulcloud/schulcloud-content-crawler)
 dev: [![Build Status](https://travis-ci.org/schulcloud/schulcloud-content-crawler.svg?branch=dev)](https://travis-ci.org/schulcloud/schulcloud-content-crawler)
 # schulcloud-content-crawler
 
