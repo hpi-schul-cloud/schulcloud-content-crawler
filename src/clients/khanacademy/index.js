@@ -138,6 +138,7 @@ function transformToContentModel(node, subject, subSubjects, relatedResources) {
         language: node.translated_youtube_lang,
         subjects: helper.getSubjects([subject]),
         tags: tags,
+        restrictions: null,
         relatedResources: relatedResources
     };
 

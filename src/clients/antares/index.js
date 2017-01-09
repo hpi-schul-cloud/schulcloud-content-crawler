@@ -17,7 +17,7 @@ const _postVarJson = 'json';
 const _secret = 'vx6sfg7sdftsdfq3hr2hdf';
 
 let _url = _arixEndpoint; // default
-var _context = 'HH/HH/9999'; // default for test purposes
+let _context = 'HH/HH/9999'; // default for test purposes
 
 let client = {
     getAll
@@ -60,7 +60,7 @@ function fetchMedia(json) {
         let form = {
             context: _context,
             xmlstatement: '<notch identifier="' + obj['$'].identifier + '" />'
-        }
+        };
         return req('POST', form).then((xml) => {
             return xml2js(xml)
         }).then((notchJson) => {
@@ -95,7 +95,7 @@ function fetchMedia(json) {
 function createHash(notch, secret) {
   let phrase = notch + ':' + secret;
   return crypto.createHash('md5').update(notch + ':' + secret).digest('hex');
-};
+}
 
 function createContentModel(link, obj) {
     let data = {
@@ -107,11 +107,9 @@ function createContentModel(link, obj) {
         description: helper.filterHTML(helper.getValueIfExists(obj, 'f', '1', '_')),
         type: getType(link),
         restrictions: {
-            location: {
-                state: [helper.getState('HH')] // this might become bigger once antares allows us to query more than just HH 
-            }
+            location: [{state: helper.getState('HH')}]  // this might become bigger once antares allows us to query more than just HH
         }
-    }
+    };
 
     try {
         let content = contentModel.getModelObject(data);
