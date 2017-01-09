@@ -1,15 +1,11 @@
 'use strict';
 
 import contentModelFromClientRepo from '../clients/content-model';
-// content-model.js - A mongoose model
-// 
-// See http://mongoosejs.com/docs/models.html
-// for more of what you can do here.
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-var contentSchemaObject = Object.assign({}, contentModelFromClientRepo.schema);
+let contentSchemaObject = Object.assign({}, contentModelFromClientRepo.schema);
 contentSchemaObject.updatedAt = { type: Date, 'default': Date.now };
 contentSchemaObject.client = { type: String, required: true};
 
