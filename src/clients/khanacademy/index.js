@@ -24,7 +24,7 @@ let client = {
 
 //member functions
 function getAll() {
-    return request(API_URL)
+    return request.get(API_URL)
         .then((response) => {
             let tree = JSON.parse(response);
 
