@@ -31,11 +31,13 @@ let invalidData = {
 describe('content-model', function() {
     describe('validation', function() {
         it('accepts a valid data object', function() {
-          assert.ok(contentModel.getModelObject(validData));
+            assert.ok(contentModel.getModelObject(validData));
         });
 
         it('rejects a data object with incomplete required field', function() {
-          assert.throws(() => { contentModel.getModelObject(invalidData) }, /required/);
+            assert.throws(() => {
+                contentModel.getModelObject(invalidData)
+            }, /required/);
         });
     });
 });

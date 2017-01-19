@@ -1,0 +1,428 @@
+// 20170116163033
+// https://de.khanacademy.org/api/v1/topictree
+
+{
+  "icon_src": "",
+  "child_data": [
+    {
+      "kind": "Topic",
+      "id": "x29232c6b"
+    },
+    {
+      "kind": "Topic",
+      "id": "x7a488390"
+    },
+    {
+      "kind": "Topic",
+      "id": "xb92336a2"
+    },
+    {
+      "kind": "Topic",
+      "id": "x5ca94af1"
+    },
+    {
+      "kind": "Topic",
+      "id": "x905db83d"
+    },
+    {
+      "kind": "Topic",
+      "id": "x45aed616"
+    },
+    {
+      "kind": "Topic",
+      "id": "x7626d097"
+    },
+    {
+      "kind": "Topic",
+      "id": "x22bac3dd"
+    },
+    {
+      "kind": "Topic",
+      "id": "x9726e451"
+    },
+    {
+      "kind": "Topic",
+      "id": "x6a4a5e33"
+    },
+    {
+      "kind": "Topic",
+      "id": "x54390c7e"
+    },
+    {
+      "kind": "Topic",
+      "id": "x1415bfac"
+    },
+    {
+      "kind": "Topic",
+      "id": "xd1039e22"
+    },
+    {
+      "kind": "Topic",
+      "id": "x0dd5be74"
+    },
+    {
+      "kind": "Topic",
+      "id": "xcc477d6b"
+    },
+    {
+      "kind": "Topic",
+      "id": "xf48da0d3"
+    },
+    {
+      "kind": "Topic",
+      "id": "x39a8c854"
+    },
+    {
+      "kind": "Topic",
+      "id": "x4111f06b"
+    },
+    {
+      "kind": "Topic",
+      "id": "xfbfcb2c7"
+    },
+    {
+      "kind": "Topic",
+      "id": "x9355d381"
+    },
+    {
+      "kind": "Topic",
+      "id": "xd3a4aa15"
+    },
+    {
+      "kind": "Topic",
+      "id": "x6807e5e3"
+    },
+    {
+      "kind": "Topic",
+      "id": "xaed4beefb9821096"
+    },
+    {
+      "kind": "Topic",
+      "id": "x21b82353"
+    },
+    {
+      "kind": "Topic",
+      "id": "xb58703f8"
+    },
+    {
+      "kind": "Topic",
+      "id": "xa9a3f00d"
+    },
+    {
+      "kind": "Topic",
+      "id": "xc2c8f646"
+    },
+    {
+      "kind": "Topic",
+      "id": "xd4860a95"
+    },
+    {
+      "kind": "Topic",
+      "id": "x12772614"
+    },
+    {
+      "kind": "Topic",
+      "id": "xca875d28"
+    },
+    {
+      "kind": "Topic",
+      "id": "x261c2cc7"
+    }
+  ],
+  "twitter_url": "",
+  "domain_slug": null,
+  "relative_url": "/",
+  "creation_date": "2016-12-14T00:46:38Z",
+  "web_url": "",
+  "ka_url": "https://de.khanacademy.org/",
+  "translated_standalone_title": "Khan Academy",
+  "has_user_authored_content_types": true,
+  "translated_title": "Khan Academy",
+  "gplus_url": "",
+  "id": "x00000000",
+  "hide": true,
+  "title": "Khan Academy",
+  "tags": [
+
+  ],
+  "user_authored_content_types_info": [
+
+  ],
+  "slug": "root",
+  "user_authored_content_types": [
+
+  ],
+  "translated_description": "",
+  "alternate_slugs": [
+
+  ],
+  "standalone_title": "Khan Academy",
+  "logo_image_url": "",
+  "in_knowledge_map": false,
+  "description": "",
+  "node_slug": "root",
+  "deleted": false,
+  "listed_locales": [
+    "en",
+    "da",
+    "es",
+    "fr",
+    "he",
+    "pl",
+    "pt",
+    "tr"
+  ],
+  "facebook_url": "",
+  "render_type": "Root",
+  "background_image_url": "",
+  "background_image_caption": "",
+  "has_peer_reviewed_projects": true,
+  "topic_page_url": "/",
+  "extended_slug": "",
+  "deleted_mod_time": "2013-07-13T00:03:08Z",
+  "kind": "Topic",
+  "curation": {
+
+  },
+  "do_not_publish": false,
+  "children": [
+    {
+      "icon_src": "",
+      "child_data": [
+        {
+          "kind": "Video",
+          "id": "1101921746"
+        },
+        {
+          "kind": "Video",
+          "id": "796509722"
+        },
+        {
+          "kind": "Video",
+          "id": "796388970"
+        },
+        {
+          "kind": "Video",
+          "id": "753767269"
+        },
+        {
+          "kind": "Video",
+          "id": "225139731"
+        },
+        {
+          "kind": "Video",
+          "id": "225139729"
+        },
+        {
+          "kind": "Video",
+          "id": "988721865"
+        },
+        {
+          "kind": "Video",
+          "id": "884313452"
+        },
+        {
+          "kind": "Video",
+          "id": "671536496"
+        },
+        {
+          "kind": "Video",
+          "id": "887553535"
+        },
+        {
+          "kind": "Video",
+          "id": "1049279550"
+        },
+        {
+          "kind": "Video",
+          "id": "796535894"
+        },
+        {
+          "kind": "Video",
+          "id": "796307891"
+        },
+        {
+          "kind": "Video",
+          "id": "1094139389"
+        },
+        {
+          "kind": "Video",
+          "id": "796502981"
+        },
+        {
+          "kind": "Video",
+          "id": "796434657"
+        },
+        {
+          "kind": "Video",
+          "id": "871510490"
+        },
+        {
+          "kind": "Video",
+          "id": "884392300"
+        },
+        {
+          "kind": "Video",
+          "id": "x77e83a17"
+        },
+        {
+          "kind": "Video",
+          "id": "884395195"
+        },
+        {
+          "kind": "Video",
+          "id": "1077533640"
+        },
+        {
+          "kind": "Video",
+          "id": "1094227108"
+        },
+        {
+          "kind": "Video",
+          "id": "1094119956"
+        },
+        {
+          "kind": "Video",
+          "id": "1112847811"
+        },
+        {
+          "kind": "Video",
+          "id": "1114711148"
+        },
+        {
+          "kind": "Video",
+          "id": "1081957510"
+        },
+        {
+          "kind": "Video",
+          "id": "1095856196"
+        },
+        {
+          "kind": "Video",
+          "id": "1090948774"
+        },
+        {
+          "kind": "Video",
+          "id": "1013985489"
+        },
+        {
+          "kind": "Video",
+          "id": "xca214ba1"
+        }
+      ],
+      "twitter_url": "",
+      "domain_slug": "new-and-noteworthy",
+      "relative_url": "/new-and-noteworthy",
+      "creation_date": "2016-09-13T20:35:19Z",
+      "web_url": "",
+      "ka_url": "https://de.khanacademy.org/new-and-noteworthy",
+      "translated_standalone_title": "New and noteworthy",
+      "has_user_authored_content_types": false,
+      "translated_title": "New and noteworthy",
+      "gplus_url": "",
+      "id": "x29232c6b",
+      "hide": false,
+      "title": "New and noteworthy",
+      "tags": [
+
+      ],
+      "user_authored_content_types_info": [
+
+      ],
+      "slug": "new-and-noteworthy",
+      "user_authored_content_types": [
+
+      ],
+      "translated_description": "",
+      "alternate_slugs": [
+
+      ],
+      "standalone_title": "New and noteworthy",
+      "logo_image_url": "",
+      "in_knowledge_map": false,
+      "description": "",
+      "node_slug": "new-and-noteworthy",
+      "deleted": false,
+      "listed_locales": [
+
+      ],
+      "facebook_url": "",
+      "render_type": "UncuratedTutorial",
+      "background_image_url": "",
+      "background_image_caption": "",
+      "has_peer_reviewed_projects": false,
+      "topic_page_url": "/new-and-noteworthy",
+      "extended_slug": "new-and-noteworthy",
+      "deleted_mod_time": "2013-07-13T00:03:09Z",
+      "kind": "Topic",
+      "curation": {
+
+      },
+      "do_not_publish": false,
+      "children": [
+        {
+          "translated_youtube_id": "l-QFT7XNeb4",
+          "relative_url": "/video/sal-on-airtalk-talking-about-his-new-book",
+          "license_logo_url": null,
+          "creation_date": "2016-02-19T01:32:15Z",
+          "keywords": "",
+          "ka_url": "https://de.khanacademy.org/video/sal-on-airtalk-talking-about-his-new-book",
+          "duration": 1022,
+          "translated_title": "Radio interview: Sal on AirTalk talking about his new book",
+          "translated_description_html": "Sal talks with Larry Mantle about The One World School House (http://www.amazon.com/dp/1455508381?tag=khanacad-20)",
+          "id": "1101921746",
+          "download_size": 16429317,
+          "description_html": "Sal talks with Larry Mantle about The One World School House (http://www.amazon.com/dp/1455508381?tag=khanacad-20)",
+          "title": "Radio interview: Sal on AirTalk talking about his new book",
+          "thumbnail_urls": {
+            "default": "https://cdn.kastatic.org/googleusercontent/vYQk9xwC2pQqVVJhYBErcbPvcCV_VQgAkYMglUZP47_DO-dLzHF57Nkt8YqJ4kD9k1fbEsa4w4SkV3rkUWZ1UNI",
+            "filtered": "https://cdn.kastatic.org/googleusercontent/vYQk9xwC2pQqVVJhYBErcbPvcCV_VQgAkYMglUZP47_DO-dLzHF57Nkt8YqJ4kD9k1fbEsa4w4SkV3rkUWZ1UNI"
+          },
+          "author_names": [
+            "Sal Khan"
+          ],
+          "license_full_name": "Standard Youtube",
+          "image_url": "https://cdn.kastatic.org/googleusercontent/vYQk9xwC2pQqVVJhYBErcbPvcCV_VQgAkYMglUZP47_DO-dLzHF57Nkt8YqJ4kD9k1fbEsa4w4SkV3rkUWZ1UNI",
+          "description": "Sal talks with Larry Mantle about The One World School House (http://www.amazon.com/dp/1455508381?tag=khanacad-20)",
+          "node_slug": "v/sal-on-airtalk-talking-about-his-new-book",
+          "license_name": "Standard Youtube",
+          "kind": "Video",
+          "date_added": "2012-10-23T16:39:06Z",
+          "download_urls": {
+            "mp4": "https://cdn.kastatic.org/KA-youtube-converted/l-QFT7XNeb4.mp4/l-QFT7XNeb4.mp4",
+            "png": "https://cdn.kastatic.org/KA-youtube-converted/l-QFT7XNeb4.mp4/l-QFT7XNeb4.png",
+            "m3u8": "https://cdn.kastatic.org/KA-youtube-converted/l-QFT7XNeb4.m3u8/l-QFT7XNeb4.m3u8"
+          },
+          "slug": "sal-on-airtalk-talking-about-his-new-book",
+          "translated_youtube_lang": "en",
+          "concept_tags_info": [
+
+          ],
+          "assessment_item_tags": [
+
+          ],
+          "clarifications_enabled": true,
+          "ka_user_license": "yt-standard",
+          "sha": "ee11b1b3bcc31f7bc1c28e3e37d6fa690fc5f0e9",
+          "translated_description": "Sal talks with Larry Mantle about The One World School House (http://www.amazon.com/dp/1455508381?tag=khanacad-20)",
+          "license_url": "http://www.youtube.com/static?template=terms",
+          "youtube_id": "l-QFT7XNeb4",
+          "content_kind": "Video",
+          "readable_id": "sal-on-airtalk-talking-about-his-new-book"
+        },
+      ],
+      "sha": "a6c251bd225b9d23e1a98f1a7fce3ccd0c8cb4fa",
+      "branding_image_url": "",
+      "current_revision_key": "a6c251bd225b9d23e1a98f1a7fce3ccd0c8cb4fa",
+      "content_id": "x29232c6b",
+      "content_kind": "Topic",
+      "curriculum_key": ""
+    },
+  ],
+  "sha": "c417b5150ae3d26d55e1b750847af2520a8dea9c",
+  "branding_image_url": "",
+  "current_revision_key": "c417b5150ae3d26d55e1b750847af2520a8dea9c",
+  "content_id": "x00000000",
+  "content_kind": "Topic",
+  "curriculum_key": ""
+}

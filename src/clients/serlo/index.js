@@ -51,6 +51,7 @@ function parseLearningObjects(response, contentType) {
             subjects: subjectsAndTargetGroups.subjects,
             targetGroups: subjectsAndTargetGroups.targetGroups,
             tags: Object.keys(serialization.keywords).map(x => serialization.keywords[x]),
+            restrictions: null,
             lastModified: moment.tz(serialization.lastModified.date, serialization.lastModified.timezone).toDate(),
         };
 
