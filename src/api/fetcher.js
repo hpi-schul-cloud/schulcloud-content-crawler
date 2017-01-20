@@ -1,6 +1,9 @@
 'use strict';
 
 import contentModel from '../models/contents';
+
+const fs = require ('fs');
+
 let clientNames = ['antares', 'khanacademy', 'serlo'];
 let clients = {};
 clientNames.forEach((client) => clients[client] = require('../clients/' + client)); 
@@ -14,6 +17,7 @@ export default ({ api }) => {
     fetchData(excludedClients).then( (data) => {
       res.setHeader('Content-Type', 'application/json');
       res.send(JSON.stringify(data));
+      fs.createWriteStream(__dirname + '/../../fetch.log', {flags: 'a'}).write(JSON.stringify(data));
     });
   });
 };
@@ -32,7 +36,7 @@ function fetchData (excludedClients) {
           })
     );
 
-  console.log('Will fetch data from ' + clientsPromises.length + ' client(s)');
+  console.log('Will fetch data from ' + fetchClients.length + ' client(s)');
   return Promise.all(clientsPromises).then((data) => {
     let successes = _.values(fetchClients)
                   .filter((client) => errors.filter((error) => error.client === client).length == 0)

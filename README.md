@@ -25,6 +25,8 @@ dev: [![Build Status](https://travis-ci.org/schulcloud/schulcloud-content-crawle
 /fetch?exclude=antares&exclude=khanacademy        # exclude antares and khanacademy form fetching
 ```
 
+The JSON response of the API call is logged to the `./fetch.log` file.
+
 ## Clients
 
 This repository contains the clients for all external content provider that are used for the content search of the Schul-Cloud. 
