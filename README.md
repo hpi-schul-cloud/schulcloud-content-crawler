@@ -21,6 +21,8 @@ dev: [![Build Status](https://travis-ci.org/schulcloud/schulcloud-content-crawle
 
 ```
 /fetch                                            # fetch all client content resources
+/fetch?exclude=serlo                              # exclude serlo from fetching
+/fetch?exclude=antares&exclude=khanacademy        # exclude antares and khanacademy form fetching
 ```
 
 ## Clients

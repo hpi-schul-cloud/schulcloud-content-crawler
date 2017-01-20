@@ -10,7 +10,8 @@ import md5 from 'md5';
 
 export default ({ api }) => {
   api.get('/fetch', (req, res) => {
-    fetchData().then( (data) => {
+    let excludedClients = Array.isArray(req.query.exclude) ? req.query.exclude : [req.query.exclude];
+    fetchData(excludedClients).then( (data) => {
       res.setHeader('Content-Type', 'application/json');
       res.send(JSON.stringify(data));
     });
@@ -18,9 +19,10 @@ export default ({ api }) => {
 };
 
 //fetching all data from every client and push the data to the database
-function fetchData () {
+function fetchData (excludedClients) {
   let errors = [];
-  let clientsPromises = _.keys(clients)
+  let fetchClients = _.keys(clients).filter((client) => !excludedClients.includes(client));
+  let clientsPromises = fetchClients
     .map((client) =>
       clients[client].getAll()
           .then((data) => insertIntoDatabase(client, data))
@@ -30,17 +32,17 @@ function fetchData () {
           })
     );
 
-  console.log('Will fetch data from ' + clientsPromises.length + ' clients');
+  console.log('Will fetch data from ' + clientsPromises.length + ' client(s)');
   return Promise.all(clientsPromises).then((data) => {
-    let successes = _.keys(clients)
+    let successes = _.values(fetchClients)
                   .filter((client) => errors.filter((error) => error.client === client).length == 0)
                   .map((client) => client);
-    let text = successes.length + '/' + _.keys(clients).length + ' clients successfully fetched data';
+    let text = successes.length + '/' + fetchClients.length + ' client(s) successfully fetched data';
     
     console.log(text);
     return {
         message: text,
-        clients: _.keys(clients),
+        clients: _.values(fetchClients),
         successes,
         errors
     };
