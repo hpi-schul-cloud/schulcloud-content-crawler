@@ -44,7 +44,7 @@ function parseLearningObjects(response, contentType) {
             originId: serialization.guid,
             title: serialization.title,
             url: urljoin(BASE_URL, serialization.link),
-            license: "https://creativecommons.org/licenses/by-sa/4.0/",
+            license: ["https://creativecommons.org/licenses/by-sa/4.0/"],
             language: "de-de",
             description: serialization.description,
             type: CONTENT_TYPE_STANDARD_NAMES[contentType],

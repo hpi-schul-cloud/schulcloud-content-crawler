@@ -5,7 +5,7 @@ const contentModel = {
         originId: { type: String, required: true},
         title: { type: String, required: true},
         url: { type: String, required: true},
-        license: { type: String }, // list of all licenses that apply (C30, C32, C34, C38, from ftp://ftp.fwu.de/fwu/eaf/db-eaf.pdf)
+        license: [{ type: String }], // list of all licenses that apply (C30, C32, C34, C38, from ftp://ftp.fwu.de/fwu/eaf/db-eaf.pdf)
         description: { type: String },
         contentType: { type: String }, // pdf, video, ... --> has to follow ftp://ftp.fwu.de/fwu/eaf/Signatur-Infos%202015-05.pdf
         creationDate: { type: Date },

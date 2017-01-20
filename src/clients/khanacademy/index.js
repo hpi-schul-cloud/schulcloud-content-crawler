@@ -129,7 +129,7 @@ function transformToContentModel(node, subject, subSubjects, relatedResources) {
         originId: node.id,
         title: node.title,
         url: node.ka_url,
-        license: node.license_url,
+        license: [node.license_url],
 
         description: node.description,
         type: contentType,

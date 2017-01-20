@@ -102,7 +102,7 @@ function createContentModel(link, obj) {
         originId: obj['$'].identifier,
         title: helper.getValueIfExists(obj, 'f', '2', '_'),
         url: link,
-        license: helper.getValueIfExists(obj, 'f', '0', '_'), // TODO: what does this license mean?
+        license: [helper.getValueIfExists(obj, 'f', '0', '_')], // TODO: what does this license mean?
         language: "de-de",
         description: helper.filterHTML(helper.getValueIfExists(obj, 'f', '1', '_')),
         type: getType(link),
