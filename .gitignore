@@ -34,3 +34,4 @@ data/
 .idea/
 
 dist/
+config.js
