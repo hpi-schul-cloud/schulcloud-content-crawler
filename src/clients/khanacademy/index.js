@@ -132,7 +132,7 @@ function transformToContentModel(node, subject, subSubjects, relatedResources) {
         license: [node.license_url],
 
         description: node.description,
-        type: contentType,
+        contentType: contentType,
         creationDate: creationDate,
         lastModified: lastModified,
         language: node.translated_youtube_lang,

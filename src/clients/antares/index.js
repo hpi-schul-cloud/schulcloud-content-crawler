@@ -101,8 +101,8 @@ function parseContentModel(elem) {
 
     // Check, if data contains url
     if(data.url) {
-        if(!data.type) {
-            data.type = getTypeFromUrl(data.url);
+        if(!data.contentType) {
+            data.contentType = getTypeFromUrl(data.url);
         }
 
         return Promise.resolve(contentModel.getModelObject(data));
