@@ -25,7 +25,7 @@ export default ({ api }) => {
 //fetching all data from every client and push the data to the database
 function fetchData (excludedClients) {
   let errors = [];
-  let fetchClients = _.keys(clients).filter((client) => !excludedClients.includes(client));
+  let fetchClients = _.keys(clients).filter(client => excludedClients.indexOf(client) === -1);
   let clientsPromises = fetchClients
     .map((client) =>
       clients[client].getAll()
