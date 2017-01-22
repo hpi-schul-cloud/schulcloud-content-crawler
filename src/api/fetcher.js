@@ -66,7 +66,7 @@ function insertIntoDatabase(clientName, data) {
   let removePromise = contentModel.remove({client: clientName}).exec();
 
   return removePromise.then(
-      (result) => console.log(clientName + ': deleted ' + result + ' rows in db')
+      (result) => console.log(clientName + ': deleted ' + result.result.n + ' rows in db')
     ).then(
       () => contentModel.collection.insert(data, { ordered: false })
     ).then(
