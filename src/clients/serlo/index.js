@@ -47,7 +47,7 @@ function parseLearningObjects(response, contentType) {
             license: ["https://creativecommons.org/licenses/by-sa/4.0/"],
             language: "de-de",
             description: serialization.description,
-            type: CONTENT_TYPE_STANDARD_NAMES[contentType],
+            contentType: CONTENT_TYPE_STANDARD_NAMES[contentType],
             subjects: subjectsAndTargetGroups.subjects,
             targetGroups: subjectsAndTargetGroups.targetGroups,
             tags: Object.keys(serialization.keywords).map(x => serialization.keywords[x]),
