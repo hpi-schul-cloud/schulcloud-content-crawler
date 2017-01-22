@@ -54,7 +54,6 @@ function sendRequest(statement, priority) {
     };
 
     return limiter.schedulePriority(priority, () => {
-        console.log('REQUEST: ' + statement + '\r\n');
         return request(options).then(response => {
             response = response.replace('\u0001', '').replace('\u0006', '');
             let responseDoc = libxmljs.parseXml(response);
