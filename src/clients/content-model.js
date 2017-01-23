@@ -21,8 +21,13 @@ const contentModel = {
     getModelObject: function (data) {
         let modelObject = {};
         Object.keys(this.schema).forEach((field) => {
-            modelObject[field] = data[field];
-            if(this.schema[field].required && (modelObject[field] === undefined || modelObject[field] === null)) {
+            if(data[field] != null) {
+                modelObject[field] = data[field];
+            }
+            else if(this.schema[field].default != null) {
+                modelObject[field] = this.schema[field].default;
+            }
+            else if (this.schema[field].required) {
                 throw field + " is required";
             }
         });
