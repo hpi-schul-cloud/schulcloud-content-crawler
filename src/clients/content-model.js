@@ -16,7 +16,8 @@ const contentModel = {
         target: { type: String }, // prefix 0: pupils / 1: teacher; suffix TODO: excercise, ....
         tags: [{ type: String }],
         restrictions: [{ location: [{ state: String }], minAge: Number }], // e.g. FSK, ...
-        relatedResources: [{ type: String }], // list of objects containing URL and type
+        relatedResources: [{ type: String }], // list of objects containing URL and type,
+        popularity: { type: Number, default: 0 }
     },
     getModelObject: function (data) {
         let modelObject = {};
