@@ -7,7 +7,7 @@ const contentModel = {
         url: { type: String, required: true},
         license: [{ type: String }], // list of all licenses that apply (C30, C32, C34, C38, from ftp://ftp.fwu.de/fwu/eaf/db-eaf.pdf)
         description: { type: String },
-        contentType: { type: String }, // pdf, video, ... --> has to follow ftp://ftp.fwu.de/fwu/eaf/Signatur-Infos%202015-05.pdf
+        contentType: { type: Number }, // has to follow ftp://ftp.fwu.de/fwu/eaf/Signatur-Infos%202015-05.pdf
         creationDate: { type: Date },
         lastModified: { type: Date },
         language: { type: String }, // follow LCID string
