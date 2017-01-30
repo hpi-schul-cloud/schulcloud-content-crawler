@@ -4,9 +4,9 @@ import contentModel from '../models/contents';
 
 const fs = require ('fs');
 
-let clientNames = ['antares', 'khanacademy', 'serlo'];
+let clientNames = ['antares', 'khanacademy', 'serlo', 'youtube'];
 let clients = {};
-clientNames.forEach((client) => clients[client] = require('../clients/' + client)); 
+clientNames.forEach((client) => clients[client] = require('../clients/' + client));
 
 import _ from 'lodash';
 import md5 from 'md5';
@@ -42,7 +42,7 @@ function fetchData (excludedClients) {
                   .filter((client) => errors.filter((error) => error.client === client).length == 0)
                   .map((client) => client);
     let text = successes.length + '/' + fetchClients.length + ' client(s) successfully fetched data';
-    
+
     console.log(text);
     return {
         message: text,
@@ -57,8 +57,8 @@ function insertIntoDatabase(clientName, data) {
   console.log(clientName + ': fetched ' + data.length + ' entities');
   data.forEach((entity) => {
     entity.updatedAt = Date.now();
-    entity._id = md5(clientName + '_' + entity.originId).slice(4,28);    
-    entity.id = md5(clientName + '_' + entity.originId).slice(4,28); 
+    entity._id = md5(clientName + '_' + entity.originId).slice(4,28);
+    entity.id = md5(clientName + '_' + entity.originId).slice(4,28);
     entity.type = "contents";   //needed for jsonapi-server
     entity.client = clientName;
   });

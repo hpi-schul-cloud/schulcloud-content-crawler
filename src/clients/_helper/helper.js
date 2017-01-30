@@ -8,6 +8,7 @@ let helper = {
     getSchoolType,
     getSubjects,
     getContentTypeFromEnding,
+    getContentTypeFromName,
     filterHTML,
     getValueIfExists
 };
@@ -273,6 +274,19 @@ function getContentTypeFromEnding(s) {
         case 'pdf':
             return 79;
     }
+}
+
+function getContentTypeFromName(name) {
+  switch(name) {
+    case 'audio':
+    case 'music':
+    case 'podcast':
+      return 29;
+    case 'video':
+      return 5501;
+    case 'document':
+      return 79;
+  }
 }
 
 function filterHTML(s) {
