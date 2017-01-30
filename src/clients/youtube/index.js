@@ -15,9 +15,15 @@ let client = {
 };
 
 function getAll() {
-  return new Promise((resolve, reject) => {
-    return resolve(getYoutubeData('UCdQvwubOWGRB8JyoEC7lSbA', 0));
-  });
+  let channelPromises = [];
+  for (let channel of config.channelIds) {
+    channelPromises.push(new Promise((resolve, reject) => {
+      return resolve(getYoutubeData(channel, 0));
+    }));
+  }
+  return Promise.all(channelPromises).then((content) =>
+      content.reduce((x, y) => x.concat(y))
+  );
 }
 
 function getYoutubeData(channelId, page = undefined, items = []) {
