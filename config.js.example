@@ -1,7 +1,15 @@
 var config = {};
 
 config.antares = {secret: 'abcdefghijklmn123456789'};
-config.youtube = {apiKey: 'abcdefghjiklmnopqrstuvwxyz',
-                  channelIds: ['']};
+config.youtube = {
+  apiKey: 'abcdefghjiklmnopqrstuvwxyz',
+  channels: [
+    {
+      id: 'UCdQvwubOWGRB8JyoEC7lSbA',
+      name: 'TheSimpleClub',
+      language: 'de-de'
+    }
+  ]
+};
 
 module.exports = config;

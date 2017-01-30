@@ -3,6 +3,7 @@
 const config = require('./../../../config').youtube;
 const request = require('request-promise');
 const contentModel = require('./../content-model');
+const helper = require('./../_helper/helper');
 const google = require('googleapis');
 
 const youtube = google.youtube({
@@ -16,7 +17,7 @@ let client = {
 
 function getAll() {
   let channelPromises = [];
-  for (let channel of config.channelIds) {
+  for (let channel of config.channels) {
     channelPromises.push(new Promise((resolve, reject) => {
       return resolve(getYoutubeData(channel, 0));
     }));
@@ -26,17 +27,17 @@ function getAll() {
   );
 }
 
-function getYoutubeData(channelId, page = undefined, items = []) {
+function getYoutubeData(channel, page = undefined, items = []) {
   if (page === undefined) {
     return new Promise((resolve) => {
-      resolve(items);
+      resolve(getContentModels(channel, items));
     });
   }
   return new Promise((resolve, reject) => {
     let requestParams = {
       part: 'id,snippet',
       type: 'video',
-      channelId: channelId,
+      channelId: channel.id,
       maxResults: 5
     };
     if (page && page !== 0) {
@@ -49,15 +50,32 @@ function getYoutubeData(channelId, page = undefined, items = []) {
       items = items.concat(data.items);
       resolve({items: items, page: data.nextPageToken});
     });
-  }).then((result) => { return getYoutubeData(channelId, result.page, result.items) });
+  }).then((result) => { return getYoutubeData(channel, result.page, result.items) });
 }
 
-function parseChannelData(response) {
-
+function getContentModels(channel, items) {
+  let contentModels = [];
+  for (let item in items) {
+    contentModels.push(parseContentModel(channel, items[item]));
+  }
+  return contentModels;
 }
 
-function parseContentModel(element) {
+function parseContentModel(channel, item) {
+  let data = {};
+  data.originId = item.id.videoId;
+  data.title = item.snippet.title;
+  data.url = 'https://www.youtube.com/watch?v=' + data.originId;
+  data.license = channel.license;
+  data.description = item.snippet.description;
+  data.contentType = helper.getContentTypeFromName('video');
+  data.creationDate = item.snippet.publishedAt;
+  data.language = channel.language
+  data.subjects = channel.subjects
+  data.targetGroups = channel.targetGroups
 
+
+  return contentModel.getModelObject(data);
 }
 
 module.exports = client;
