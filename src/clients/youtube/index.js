@@ -16,17 +16,42 @@ let client = {
 
 function getAll() {
   return new Promise((resolve, reject) => {
-    youtube.search.list({part: 'id,snippet',
+    return resolve(getYoutubeData('UCdQvwubOWGRB8JyoEC7lSbA', 0));
+  });
+}
+
+function getYoutubeData(channelId, page = undefined, items = []) {
+  if (page === undefined) {
+    return new Promise((resolve) => {
+      resolve(items);
+    });
+  }
+  return new Promise((resolve, reject) => {
+    let requestParams = {
+      part: 'id,snippet',
       type: 'video',
-      channelId: 'UCdQvwubOWGRB8JyoEC7lSbA',
+      channelId: channelId,
       maxResults: 5
-    }, function (err, data) {
+    };
+    if (page && page !== 0) {
+      requestParams.pageToken = page;
+    }
+    youtube.search.list(requestParams, function (err, data) {
       if (err) {
         return reject(err)
       }
-      return resolve(data)
+      items = items.concat(data.items);
+      resolve({items: items, page: data.nextPageToken});
     });
-  })
+  }).then((result) => { return getYoutubeData(channelId, result.page, result.items) });
+}
+
+function parseChannelData(response) {
+
+}
+
+function parseContentModel(element) {
+
 }
 
 module.exports = client;
