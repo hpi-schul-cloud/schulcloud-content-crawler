@@ -1,8 +1,8 @@
 var config = {};
 
-config.antares = {secret: 'abcdefghijklmn123456789'};
+config.antares = {secret: process.env.ANTARES_SECRET;
 config.youtube = {
-  apiKey: 'abcdefghjiklmnopqrstuvwxyz',
+  apiKey: process.env.YOUTUBE_API_KEY,
   channels: [
     {
       id: 'UCdQvwubOWGRB8JyoEC7lSbA',
