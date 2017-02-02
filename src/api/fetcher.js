@@ -65,5 +65,7 @@ function insertIntoDatabase(clientName, data) {
       () => contentModel.collection.insert(data, { ordered: false })
     ).then(
       (result) => console.log(clientName + ': inserted ' + result.insertedCount + ' rows to db')
+    ).catch(
+      (error) => console.log(error)
     );
 }
