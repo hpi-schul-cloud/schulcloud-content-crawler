@@ -1,5 +1,5 @@
 var config = {};
 
-config.antares = {secret: 'abcdefghijklmn123456789'};
+config.antares = {secret: process.env.ANTARES_SECRET;
 
 module.exports = config;
