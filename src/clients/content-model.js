@@ -17,7 +17,8 @@ const contentModel = {
         tags: [{ type: String }],
         restrictions: [{ location: [{ state: String }], minAge: Number }], // e.g. FSK, ...
         relatedResources: [{ type: String }], // list of objects containing URL and type,
-        popularity: { type: Number, default: 0 }
+        popularity: { type: Number, default: 0 },
+        thumbnailUrl: {type: String }
     },
     getModelObject: function (data) {
         let modelObject = {};
