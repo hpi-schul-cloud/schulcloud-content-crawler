@@ -63,6 +63,7 @@ function getContentModels(channel, items) {
 
 function parseContentModel(channel, item) {
   let data = {};
+  
   data.originId = item.id.videoId;
   data.title = item.snippet.title;
   data.url = 'https://www.youtube.com/watch?v=' + data.originId;
@@ -70,10 +71,10 @@ function parseContentModel(channel, item) {
   data.description = item.snippet.description;
   data.contentType = helper.getContentTypeFromName('video');
   data.creationDate = item.snippet.publishedAt;
-  data.language = channel.language
-  data.subjects = channel.subjects
-  data.targetGroups = channel.targetGroups
-
+  data.language = channel.language;
+  data.subjects = channel.subjects;
+  data.targetGroups = channel.targetGroups;
+  data.thumbnailUrl = item.snippet.thumbnails.default.url;
 
   return contentModel.getModelObject(data);
 }
