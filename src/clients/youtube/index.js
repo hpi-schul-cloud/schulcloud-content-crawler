@@ -1,8 +1,8 @@
 'use strict';
 try {
-  const config = require('./../../../config').youtube;
+  var config = require('./../../../config').youtube;
 } catch (e) {
-  console.error("Please add a youtube apikey to the config.js in the root of the crawler.");
+  console.error("Please add a youtube apikey to the config.js in the root folder of the crawler.");
 }
 const request = require('request-promise');
 const contentModel = require('./../content-model');
