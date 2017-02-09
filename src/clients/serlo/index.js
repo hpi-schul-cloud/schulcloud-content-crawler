@@ -72,7 +72,7 @@ function parseCategories(categories) {
         targetGroups.push({
             state: helper.getState(fields[2]),
             schoolType: helper.getSchoolType(fields[3]),
-            class: helper.getClass(fields[4])
+            grade: helper.getClass(fields[4])
         })
     }
     subjects = helper.getSubjects(subjects);

@@ -76,7 +76,7 @@ function parseSeries(root, subject, subSubjects, seriesId) {
 
     // Series model
     let relatedResources = root.children.map(child => ({
-        type: RELATED_SERIES_EPISODE_TYPE,
+        relationType: RELATED_SERIES_EPISODE_TYPE,
         originId: child.id
     }));
     let model = transformToContentModel(root, subject, subSubjects, relatedResources);
@@ -85,17 +85,17 @@ function parseSeries(root, subject, subSubjects, seriesId) {
     // Video models
     for(let i = 0; i < root.children.length; i++) {
         let relatedResources = [{
-            type: RELATED_SERIES_TYPE,
+            relationType: RELATED_SERIES_TYPE,
             originId: seriesId
         }];
         if(i > 0)
             relatedResources.push({
-                type: RELATED_PREVIOUS_EPISODE,
+                relationType: RELATED_PREVIOUS_EPISODE,
                 originId: root.children[i - 1].id
             });
         if(i < root.children.length - 1)
             relatedResources.push({
-                type: RELATED_NEXT_EPISODE,
+                relationType: RELATED_NEXT_EPISODE,
                 originId: root.children[i + 1].id
             });
 
