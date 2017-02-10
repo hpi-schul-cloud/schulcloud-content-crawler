@@ -5,26 +5,26 @@ const contentModel = {
         originId: { type: String, required: true },
         title: { type: String, required: true },
         url: { type: String, required: true },
-        license: [{ type: String }], // list of all licenses that apply (C30, C32, C34, C38, from ftp://ftp.fwu.de/fwu/eaf/db-eaf.pdf)
+        license: [{ type: String }],
         description: { type: String },
-        contentType: { type: Number }, // has to follow ftp://ftp.fwu.de/fwu/eaf/Signatur-Infos%202015-05.pdf
+        contentType: { type: Number },
         creationDate: { type: Date },
         lastModified: { type: Date },
-        language: { type: String }, // follow LCID string
-        subjects: [{ type: String }], // list of all subjects that apply to content; should follow http://agmud.de/wp-content/uploads/2013/09/sgsyst-20121219.pdf
-        targetGroups: [{ state: String, grade: String, schoolType: String, _id: false }], // list of all classes/age groups etc; should follow C10 from ftp://ftp.fwu.de/fwu/eaf/db-eaf.pdf
-        target: { type: String }, // prefix 0: pupils / 1: teacher; suffix TODO: excercise, ....
+        language: { type: String },
+        subjects: [{ type: String }],
+        targetGroups: [{ state: String, grade: String, schoolType: String, _id: false }],
+        target: { type: String },
         tags: [{ type: String }],
-        restrictions: [{ location: [{ state: String }], minAge: Number, _id: false }], // e.g. FSK, ...
-        relatedResources: [{ relationType: String, originId: String, _id: false }], // list of objects containing URL and type,
+        restrictions: [{ location: [{ state: String }], minAge: Number, _id: false }],
+        relatedResources: [{ originId: String, relationType: String, _id: false }],
         popularity: { type: Number, default: 0 },
         thumbnailUrl: { type: String },
         editorsPick: { type: Boolean, default: false }
     },
     getModelObject: function (data) {
         let modelObject = {};
-        Object.keys(this.schema).forEach((field) => {
-            if(data[field] != null) {
+        Object.keys(this.schema).forEach(field => {
+            if(data[field] !== undefined) {
                 modelObject[field] = data[field];
             }
             else if(this.schema[field].default != null) {
