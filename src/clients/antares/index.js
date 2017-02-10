@@ -11,7 +11,11 @@ const helper = require('./../_helper/helper');
 
 
 const ARIX_URL = 'https://arix.datenbank-bildungsmedien.net';
-const SECRET = require('./../../../config').antares.secret;
+try {
+    var SECRET = require('./../../../config').antares.secret;
+} catch(e) {
+    console.error("please add the antares secret to the config.js");
+}
 const DEFAULT_CONTEXT = 'HH/HH/9999'; // default for test purposes
 const DEFAULT_HEADERS = {
     'Content-Type': 'application/x-www-form-urlencoded'
@@ -72,7 +76,7 @@ function parseSearchResult(response) {
     // If error occurs during parsing, return error instead of content model.
     let promises = response.find(RESULT_ENTRIES_XPATH).map(elem => {
         return parseContentModel(elem).catch(e => {
-            console.error(e);
+            console.error(e + '; received: ' + elem.toString());
             return e;
         });
     });
