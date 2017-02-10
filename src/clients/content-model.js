@@ -30,7 +30,7 @@ const contentModel = {
                 modelObject[field] = this.schema[field].default;
             }
             else if (this.schema[field].required) {
-                throw field + " is required";
+                throw new Error (field + " is required");
             }
         });
 

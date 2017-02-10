@@ -22,7 +22,7 @@ const DEFAULT_HEADERS = {
 };
 
 const SEARCH_FIELDS = ['text', 'titel', 'typ', 'url'];
-const SEARCH_STATEMENT = '<search limit="10000" fields="' + SEARCH_FIELDS.join() + '">' +
+const SEARCH_STATEMENT = '<search limit="22000" fields="' + SEARCH_FIELDS.join() + '">' +
                          '<condition field="text_fields">*</condition>' +
                          '</search>';
 const REQUEST_NOTCH_STATEMENT = '<notch identifier="%s" />';
