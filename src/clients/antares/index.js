@@ -11,14 +11,18 @@ const helper = require('./../_helper/helper');
 
 
 const ARIX_URL = 'https://arix.datenbank-bildungsmedien.net';
-const SECRET = require('./../../../config').antares.secret;
+try {
+    var SECRET = require('./../../../config').antares.secret;
+} catch(e) {
+    console.error("please add the antares secret to the config.js");
+}
 const DEFAULT_CONTEXT = 'HH/HH/9999'; // default for test purposes
 const DEFAULT_HEADERS = {
     'Content-Type': 'application/x-www-form-urlencoded'
 };
 
 const SEARCH_FIELDS = ['text', 'titel', 'typ', 'url'];
-const SEARCH_STATEMENT = '<search limit="10000" fields="' + SEARCH_FIELDS.join() + '">' +
+const SEARCH_STATEMENT = '<search limit="22000" fields="' + SEARCH_FIELDS.join() + '">' +
                          '<condition field="text_fields">*</condition>' +
                          '</search>';
 const REQUEST_NOTCH_STATEMENT = '<notch identifier="%s" />';
@@ -54,7 +58,6 @@ function sendRequest(statement, priority) {
     };
 
     return limiter.schedulePriority(priority, () => {
-        console.log('REQUEST: ' + statement + '\r\n');
         return request(options).then(response => {
             response = response.replace('\u0001', '').replace('\u0006', '');
             let responseDoc = libxmljs.parseXml(response);
@@ -73,7 +76,7 @@ function parseSearchResult(response) {
     // If error occurs during parsing, return error instead of content model.
     let promises = response.find(RESULT_ENTRIES_XPATH).map(elem => {
         return parseContentModel(elem).catch(e => {
-            console.error(e);
+            console.error(e + '; received: ' + elem.toString());
             return e;
         });
     });
@@ -102,8 +105,8 @@ function parseContentModel(elem) {
 
     // Check, if data contains url
     if(data.url) {
-        if(!data.type) {
-            data.type = getTypeFromUrl(data.url);
+        if(!data.contentType) {
+            data.contentType = getTypeFromUrl(data.url);
         }
 
         return Promise.resolve(contentModel.getModelObject(data));

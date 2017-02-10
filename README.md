@@ -21,7 +21,11 @@ dev: [![Build Status](https://travis-ci.org/schulcloud/schulcloud-content-crawle
 
 ```
 /fetch                                            # fetch all client content resources
+/fetch?exclude=serlo                              # exclude serlo from fetching
+/fetch?exclude=antares&exclude=khanacademy        # exclude antares and khanacademy form fetching
 ```
+
+The JSON response of the API call is logged to the `./fetch.log` file.
 
 ## Clients
 
@@ -36,7 +40,7 @@ A content object should contain as much fields as possible from the following, a
 * **url** - The URL to the content
 * **license** - Array of all licenses that apply *(or is it always possible to just provide one license? In which form? Link? Or ftp://ftp.fwu.de/fwu/eaf/db-eaf.pdf ?)*
 * **description** - The description of the content
-* **type** - The type of the content. This has to be a 2-to-4-digit number following ftp://ftp.fwu.de/fwu/eaf/Signatur-Infos%202015-05.pdf
+* **contentType** - The type of the content. This has to be a 2-to-4-digit number following ftp://ftp.fwu.de/fwu/eaf/Signatur-Infos%202015-05.pdf
 * **creationDate** - The date when the content was originally created
 * **lastModified** - The date when the content was last modified
 * **language** - The language of the content, has to be a LCID string (e.g. de-de)
@@ -77,7 +81,7 @@ function parseLearningObjects(response) {
             license: "https://creativecommons.org/licenses/by-sa/4.0/",
             
             description: serialization.description,            
-            type: contentType,
+            contentType: contentType,
             tags: Object.keys(serialization.keywords).map(x => serialization.keywords[x]),            
             lastModified: moment.tz(serialization.lastModified.date, serialization.lastModified.timezone).toDate(),
         }
