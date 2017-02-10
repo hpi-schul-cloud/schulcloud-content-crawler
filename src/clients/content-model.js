@@ -18,7 +18,8 @@ const contentModel = {
         restrictions: [{ location: [{ state: String }], minAge: Number, _id: false }], // e.g. FSK, ...
         relatedResources: [{ relationType: String, originId: String, _id: false }], // list of objects containing URL and type,
         popularity: { type: Number, default: 0 },
-        thumbnailUrl: {type: String }
+        thumbnailUrl: { type: String },
+        editorsPick: { type: Boolean, default: false }
     },
     getModelObject: function (data) {
         let modelObject = {};
