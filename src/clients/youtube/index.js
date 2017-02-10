@@ -78,6 +78,7 @@ function parseContentModel(channel, item) {
   data.subjects = channel.subjects;
   data.targetGroups = channel.targetGroups;
   data.thumbnailUrl = item.snippet.thumbnails.default.url;
+  data.restrictions = null;
 
   return contentModel.getModelObject(data);
 }

@@ -44,8 +44,8 @@ function parseLearningObjects(response, contentType) {
             originId: serialization.guid,
             title: serialization.title,
             url: urljoin(BASE_URL, serialization.link),
-            license: ["https://creativecommons.org/licenses/by-sa/4.0/"],
-            language: "de-de",
+            license: ['https://creativecommons.org/licenses/by-sa/4.0/'],
+            language: 'de-de',
             description: serialization.description,
             contentType: CONTENT_TYPE_STANDARD_NAMES[contentType],
             subjects: subjectsAndTargetGroups.subjects,
@@ -76,17 +76,28 @@ function parseCategories(categories) {
         })
     }
     subjects = helper.getSubjects(subjects);
+
+    if(subjects.length > 0) {
+        subjects = uniq(subjects);
+    } else {
+        subjects = null;
+    }
+
+    if(targetGroups.length > 0) {
+        targetGroups = uniq(targetGroups);
+    } else {
+        targetGroups = null;
+    }
+
     return {
-        subjects: uniq(subjects),
-        targetGroups: uniq(targetGroups)
+        subjects: subjects,
+        targetGroups: targetGroups
     }
 }
 
 function uniq(a) {
     let seen = {};
-    return a.filter(function(item) {
-        return seen.hasOwnProperty(JSON.stringify(item)) ? false : (seen[JSON.stringify(item)] = true);
-    });
+    return a.filter(item => seen.hasOwnProperty(JSON.stringify(item)) ? false : (seen[JSON.stringify(item)] = true));
 }
 
 module.exports = client;

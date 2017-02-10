@@ -97,9 +97,9 @@ function parseContentModel(elem) {
         description: extractField(elem, 'text'),
         type: extractField(elem, 'typ'),
         restrictions: {
-            location: {
-                state: [helper.getState('HH')] // this might become bigger once antares allows us to query more than just HH
-            }
+            location: [{
+                state: helper.getState('HH') // this might become bigger once antares allows us to query more than just HH
+            }]
         }
     };
 
