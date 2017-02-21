@@ -123,13 +123,16 @@ function transformToContentModel(node, subject, subSubjects, relatedResources) {
         tags = tags.concat(node.keywords.split(',').filter(keyword => keyword != ''));
     if(node.concept_tags_info)
         tags = tags.concat(node.concept_tags_info.map(tag => tag.display_name));
+    let license = null;
+    if(node.license_url)
+        license = [node.license_url];
 
 
     let model = {
         originId: node.id,
         title: node.title,
         url: node.ka_url,
-        license: [node.license_url],
+        license: license,
 
         description: node.description,
         contentType: contentType,
