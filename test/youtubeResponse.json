@@ -1,0 +1,168 @@
+{
+    "items": [{
+            "kind": "youtube#searchResult",
+            "etag": "\"uQc-MPTsstrHkQcRXL3IWLmeNsM/bXIAk16KyC3OMclvQbILgFL2VDA\"",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "M-6e-pfySbg"
+            },
+            "snippet": {
+                "publishedAt": "2016-10-30T14:00:01.000Z",
+                "channelId": "UCdQvwubOWGRB8JyoEC7lSbA",
+                "title": "Perfekt für Klausuren Lernen! Die Besten Lerntipps zur Prüfungs-Vorbereitung feat. OneNote",
+                "description": "Wie lerne ich am Besten für eine Klausur? Wo fange ich an? Was für ein Lernsystem hilft mir? Wir erzählen euch heute, wie wir lernen und was uns hilft!",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/M-6e-pfySbg/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/M-6e-pfySbg/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/M-6e-pfySbg/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "TheSimpleClub",
+                "liveBroadcastContent": "none"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "etag": "\"uQc-MPTsstrHkQcRXL3IWLmeNsM/V15e1qckEC_TO3INbQgDWgCxTgw\"",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "NL3lfAny8Yw"
+            },
+            "snippet": {
+                "publishedAt": "2016-11-13T14:00:02.000Z",
+                "channelId": "UCdQvwubOWGRB8JyoEC7lSbA",
+                "title": "Sprachen lernen ohne Vokabeln und Grammatik! - Perfektes Englisch mit der Birkenbihl-Methode",
+                "description": "Ihr wollt ganz entspannt ne neue Sprache lernen aber wisst nicht wo ihr anfangen sollt? Versucht doch mal die Birkenbihl Methode! Fix und mega easy habt ihr ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/NL3lfAny8Yw/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/NL3lfAny8Yw/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/NL3lfAny8Yw/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "TheSimpleClub",
+                "liveBroadcastContent": "none"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "etag": "\"uQc-MPTsstrHkQcRXL3IWLmeNsM/nO6Bh6K-XMeC7DOp-aRgXCz4Rqs\"",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "vL3rk-2CsU4"
+            },
+            "snippet": {
+                "publishedAt": "2015-12-30T15:00:03.000Z",
+                "channelId": "UCdQvwubOWGRB8JyoEC7lSbA",
+                "title": "Community Special - TheSimpleClub beantwortet eure Fragen!",
+                "description": "Checkt unser Twitter ab: www.twitter.com/thesimpleclub Ihr stellt uns immer massig coole Fragen, da haben wir gedacht, beantworten wir sie euch doch mal in ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/vL3rk-2CsU4/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/vL3rk-2CsU4/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/vL3rk-2CsU4/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "TheSimpleClub",
+                "liveBroadcastContent": "none"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "etag": "\"uQc-MPTsstrHkQcRXL3IWLmeNsM/6Zk3br6zg65q6HI3OLXvRBHqShk\"",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "ux8iEJP_Mqw"
+            },
+            "snippet": {
+                "publishedAt": "2016-10-23T13:00:03.000Z",
+                "channelId": "UCdQvwubOWGRB8JyoEC7lSbA",
+                "title": "LERNTIPPS KONZENTRATION - Richtig Lernen #1",
+                "description": "Konzentration und Fokus sind beim Lernen extrem wichtig! Wir geben euch Lerntipps und zeigen euch Tricks wie man richtig lernt! Effizient und konzentriert ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/ux8iEJP_Mqw/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/ux8iEJP_Mqw/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/ux8iEJP_Mqw/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "TheSimpleClub",
+                "liveBroadcastContent": "none"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "etag": "\"uQc-MPTsstrHkQcRXL3IWLmeNsM/AvjaaxhDKZNLfjkuy2ZFw2ylzUg\"",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "bQFMzB22oMI"
+            },
+            "snippet": {
+                "publishedAt": "2016-11-23T15:00:03.000Z",
+                "channelId": "UCdQvwubOWGRB8JyoEC7lSbA",
+                "title": "UNSERE ABIZEIT 🙊 Kein Stress im Abi! - #WeeklyFAQ",
+                "description": "Wie war unsere Abiturzeit? Wie haben wir uns auf Abi vorbereitet, Warum hatten wir Spaß am Abitur? Wie lernt man am Besten aufs Abitur? Wie kann man ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/bQFMzB22oMI/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/bQFMzB22oMI/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/bQFMzB22oMI/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "TheSimpleClub",
+                "liveBroadcastContent": "none"
+            }
+        }
+    ]
+}
