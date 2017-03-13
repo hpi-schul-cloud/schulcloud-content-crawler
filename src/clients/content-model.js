@@ -15,7 +15,7 @@ const contentModel = {
         targetGroups: [{ state: String, grade: String, schoolType: String, _id: false }],
         target: { type: String },
         tags: [{ type: String }],
-        restrictions: [{ location: [{ state: String }], minAge: Number, _id: false }],
+        restrictions: [{ location: [{ state: String, _id: false }], minAge: Number, _id: false }],
         relatedResources: [{ originId: String, relationType: String, _id: false }],
         popularity: { type: Number, default: 0 },
         thumbnailUrl: { type: String },
