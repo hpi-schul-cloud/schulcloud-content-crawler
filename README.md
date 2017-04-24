@@ -30,7 +30,7 @@ The JSON response of the API call is logged to the `./fetch.log` file.
 ## Clients
 
 This repository contains the clients for all external content provider that are used for the content search of the Schul-Cloud. 
-Each client should provide a method called getAll(). A client should create an array of content objects as defined in the content-model and described below. In the end, each client should return a promise.
+Each client must provide a method called `getAll()`. A client should create an array of content objects as defined in the content model and described below. In the end, each client must return a promise.
 
 #### Attributes
 A content object should contain as much fields as possible from the following list, although only `originId`, `title` and `url` are required.
