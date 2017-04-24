@@ -17,6 +17,8 @@ dev: [![Build Status](https://travis-ci.org/schul-cloud/schulcloud-content-crawl
     npm start
     ```
 
+    The app is available at `http://localhost:8091/`.
+
 ## API
 
 ```
@@ -46,28 +48,28 @@ A content object should contain as much fields as possible from the following li
 * **language** - The language of the content, has to be a LCID string (e.g. de-de)
 * **subjects** - Array containing all the subjects the content is suited for. Each subject should follow the [Sachgebietssystematik für die Medienzentren und Bildstellen](http://agmud.de/wp-content/uploads/2013/09/sgsyst-20121219.pdf).
 * **targetGroups** - Array of objects representing classes/age groups/… that the content is suited for. This is an array of objects of the following schema:
-```javascript
-{ state: 'HH', grade: '9', schoolType: 'Gymnasium'}
-```
+    ```javascript
+    { state: 'HH', grade: '9', schoolType: 'Gymnasium'}
+    ```
 * **target** - Currently not used. Designated to describe for which kind of work the content is suited. Could follow a format like *(prefix 0 for pupils, 1 for teachers, and suffix 0 for exercise, 1 for exam, 2 for repetition)*
 * **tags** - Array of tags/keywords (strings) that describe what the content is about
 * **restrictions** - Define restrictions on accessing und using the learning object. This is an array of objects of the following schema: 
-```javascript
-{
-  minAge: 14, // 14 is the minimum required age to access the content
-  location:
-  [
-    state: 'HH', // state in which this content can be accessed
-    county: '', // same for county (Landkreis); as always: keep empty when it does not apply, not used yet
-    schoolDistrict: '' // same for school district, not used yet
-  ]
-}
-```
+    ```javascript
+    {
+      minAge: 14, // 14 is the minimum required age to access the content
+      location:
+      [
+        state: 'HH', // state in which this content can be accessed
+        county: '', // same for county (Landkreis); as always: keep empty when it does not apply, not used yet
+        schoolDistrict: '' // same for school district, not used yet
+      ]
+    }
+    ```
 
 * **relatedRessources** - Array of objects containing the originId and type of the related resource:
-```javascript
-{ originId: 'x3abcde', relationType: 'series' }
-```
+    ```javascript
+    { originId: 'x3abcde', relationType: 'series' }
+    ```
 
 #### Sample Client
 A client has to parse its contents to learning objects like in the following example in the Serlo client:
