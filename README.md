@@ -35,7 +35,7 @@ This repository contains the clients for all external content provider that are 
 Each client must provide a method called `getAll()`. A client should create an array of content objects as defined in the content model and described below. In the end, each client must return a promise.
 
 #### Attributes
-A content object should contain as much fields as possible from the following list, although only `originId`, `title` and `url` are required.
+A content object should contain as much fields as possible from the following list, although only `originId`, `title`, `url`, and `restrictions` are required.
 
 * **originId** - The id of the content provided by the external source.
 * **title** - The title of the content.
@@ -51,7 +51,7 @@ A content object should contain as much fields as possible from the following li
     ```javascript
     { state: 'HH', grade: '9', schoolType: 'Gymnasium'}
     ```
-    At least one attribute (`state`, `schoolType`, or `grade`) must be provided.
+    If given, at least one attribute (`state`, `schoolType`, or `grade`) must be provided.
 * **target** - Currently not used. Designated to describe for which kind of work the content is suited. Could follow a format like *prefix 0 for pupils, 1 for teachers, and suffix 0 for exercise, 1 for exam, 2 for repetition*.
 * **tags** - Array of tags/keywords (strings) that describe what the content is about.
 * **restrictions** - An object defining the restrictions on accessing und using the content, i.e., describes FSK/USK and license restrictions. This is an array of objects of the following schema: 
@@ -66,9 +66,9 @@ A content object should contain as much fields as possible from the following li
       ]
     }
     ```
-    At least `location` or `minAge` must be provided.
+    `null` means that there are no restrictions. If given, at least `location` or `minAge` must be provided.
 
-* **relatedRessources** - Array of objects containing the `originId` and `type` of the related resource:
+* **relatedRessources** - Array of objects containing the `originId` and `relationType` of the related resource:
     ```javascript
     { originId: 'x3abcde', relationType: 'series' }
     ```
