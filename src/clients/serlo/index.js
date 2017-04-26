@@ -40,6 +40,7 @@ function parseLearningObjects(response, contentType) {
     let content = JSON.parse(response);
     return content.map(serialization => {
         let subjectsAndTargetGroups = parseCategories(serialization.categories);
+        let tags = Object.keys(serialization.keywords).map(x => serialization.keywords[x])
         let data = {
             originId: serialization.guid,
             title: serialization.title,
@@ -50,7 +51,7 @@ function parseLearningObjects(response, contentType) {
             contentType: CONTENT_TYPE_STANDARD_NAMES[contentType],
             subjects: subjectsAndTargetGroups.subjects,
             targetGroups: subjectsAndTargetGroups.targetGroups,
-            tags: Object.keys(serialization.keywords).map(x => serialization.keywords[x]),
+            tags: (tags.length > 0) ? tags : null,
             restrictions: null,
             lastModified: moment.tz(serialization.lastModified.date, serialization.lastModified.timezone).toDate(),
         };
@@ -66,6 +67,10 @@ function parseCategories(categories) {
         let fields = categories[i].split('/');
         subjects.push(fields[0]);
         if (fields[1] !== "Deutschland") {
+            continue;
+        }
+
+        if (helper.getClass(fields[4]) === '') {
             continue;
         }
 

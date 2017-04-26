@@ -40,7 +40,7 @@ A content object should contain as much fields as possible from the following li
 * **originId** - The id of the content provided by the external source.
 * **title** - The title of the content.
 * **url** - The (explicit) URL of the content.
-* **license** - Array of all licenses that apply. Use URIs if possible or follow a unified schema, e.g., C38 of the Erweitertes Austauschformat (EAF) (ftp://ftp.fwu.de/fwu/eaf/db-eaf.pdf).
+* **license** - Array of all licenses that apply. Use URIs if possible or follow a unified schema, e.g., C38 of the Erweitertes Austauschformat (EAF) (ftp://ftp.fwu.de/fwu/eaf/db-eaf.pdf). `null` means that no license applies.
 * **description** - The description of the content.
 * **contentType** - The type of the content. This has to be a 2-to-4-digit number following the FWU Signatur-Infos (ftp://ftp.fwu.de/fwu/eaf/Signatur-Infos%202015-05.pdf).
 * **creationDate** - The date when the content was originally created. This refers to the content itself, not to the Schul-Cloud entity.
@@ -51,9 +51,9 @@ A content object should contain as much fields as possible from the following li
     ```javascript
     { state: 'HH', grade: '9', schoolType: 'Gymnasium'}
     ```
-    If given, at least one attribute (`state`, `schoolType`, or `grade`) must be provided.
+    `null` means that no target groups could be extracted. If given, at least one attribute (`state`, `schoolType`, or `grade`) must be provided.
 * **target** - Currently not used. Designated to describe for which kind of work the content is suited. Could follow a format like *prefix 0 for pupils, 1 for teachers, and suffix 0 for exercise, 1 for exam, 2 for repetition*.
-* **tags** - Array of tags/keywords (strings) that describe what the content is about.
+* **tags** - Array of tags/keywords (strings) that describe what the content is about. `null` means that no tags could be extracted.
 * **restrictions** - An object defining the restrictions on accessing und using the content, i.e., describes FSK/USK and license restrictions. This is an array of objects of the following schema: 
     ```javascript
     {

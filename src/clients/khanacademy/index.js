@@ -127,6 +127,7 @@ function transformToContentModel(node, subject, subSubjects, relatedResources) {
     if(node.license_url)
         license = [node.license_url];
 
+    let subjects = helper.getSubjects([subject]);
 
     let model = {
         originId: node.id,
@@ -139,8 +140,8 @@ function transformToContentModel(node, subject, subSubjects, relatedResources) {
         creationDate: creationDate,
         lastModified: lastModified,
         language: node.translated_youtube_lang,
-        subjects: helper.getSubjects([subject]),
-        tags: tags,
+        subjects: (subjects.length > 0) ? subjects : null,
+        tags: (tags.length > 0) ? tags : null,
         restrictions: null,
         relatedResources: relatedResources
     };
