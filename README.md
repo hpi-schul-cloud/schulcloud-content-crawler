@@ -81,7 +81,7 @@ When adding new attributes to the content model, the following files need to be 
 
 1. MongoDB ccontent model (`models/contents.js`)
 2. Model documentation in this readme (`README.md`)
-3. Follow the instructions[here](https://github.com/schul-cloud/schulcloud-content-api#extension-of-the-contents-model)
+3. Follow the instructions [here](https://github.com/schul-cloud/schulcloud-content-api#extension-of-the-content-model)
 
 #### Sample Client
 A client has to parse its contents to learning objects like in the following example in the Serlo client:
