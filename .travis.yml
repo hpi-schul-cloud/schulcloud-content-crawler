@@ -19,7 +19,7 @@ before_install:
   - sudo apt-get install -y libxml2-dev
 
 script:
-  - npm coverage
+  - npm run coverage
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
 
 after_success:
