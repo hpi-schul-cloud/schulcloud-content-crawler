@@ -17,6 +17,9 @@ services:
 
 before_install:
   - sudo apt-get install -y libxml2-dev
+  
+install:
+  - npm install -g codecov
 
 script:
   - npm test
