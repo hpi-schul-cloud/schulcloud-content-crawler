@@ -1,6 +1,6 @@
 master: [![Build Status](https://travis-ci.org/schul-cloud/schulcloud-content-crawler.svg?branch=master)](https://travis-ci.org/schul-cloud/schulcloud-content-crawler)
 dev: [![Build Status](https://travis-ci.org/schul-cloud/schulcloud-content-crawler.svg?branch=dev)](https://travis-ci.org/schul-cloud/schulcloud-content-crawler)
-codecov: [![codecov](https://codecov.io/gh/schul-cloud/schulcloud-content-crawler/branch/master/graph/badge.svg)](https://codecov.io/gh/schul-cloud/schulcloud-content-crawler)
+codecov: [![codecov](https://codecov.io/gh/schul-cloud/schulcloud-content-crawler/branch/master/graph/badge.svg)](https://codecov.io/gh/schul-cloud/schulcloud-content-crawler) [![Greenkeeper badge](https://badges.greenkeeper.io/schul-cloud/schulcloud-content-crawler.svg)](https://greenkeeper.io/)
 
 # schulcloud-content-crawler
 > Service to gather content from various education sites.
